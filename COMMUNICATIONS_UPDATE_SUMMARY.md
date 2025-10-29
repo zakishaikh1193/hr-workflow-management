@@ -125,3 +125,8 @@ The Communications section now displays **only real communications with candidat
 
 The Recent Communications section now shows **only actual communications with candidates** as requested, with all mock data completely removed! 🎯
 
+
+
+
+
+

@@ -155,3 +155,8 @@
 
 The analytics system now provides **complete live data** for both admin and recruiter users, with real-time updates, comprehensive metrics, and actionable insights. All data is fetched directly from the database with live calculations, ensuring users always see the most current information about their hiring process.
 
+
+
+
+
+

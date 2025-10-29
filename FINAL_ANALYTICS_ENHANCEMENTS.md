@@ -155,3 +155,8 @@ The analytics system now provides:
 
 **The 400 Bad Request error has been completely resolved, and the analytics system now provides comprehensive live data with real-time updates for both admin and recruiter users!** 🎯
 
+
+
+
+
+
