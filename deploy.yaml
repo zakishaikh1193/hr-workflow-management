@@ -1,0 +1,36 @@
+name: CI/CD Deploy HR App
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-test-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js  # Adjust for your stack, e.g., Node/Python
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install dependencies
+        run: npm ci  # or pip install -r requirements.txt
+      
+      - name: Lint code
+        run: npm run lint  # Add lint script if missing
+      
+      - name: Run tests
+        run: npm test  # Ensure tests exist
+      
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd ${{ secrets.DEPLOY_PATH }}
+            git pull origin main
+            npm install  # Restart app, e.g., pm2 restart hr-app
